@@ -1,0 +1,6 @@
+<form method="POST" action="{% url 'search' %}">
+    {%csrf_token%}
+    <input type="search" placeholder="검색어를 입력하세요." aria-label="Search" name="post" value="{{post}}">
+    <button type="submit">Search</button>
+    
+</form>

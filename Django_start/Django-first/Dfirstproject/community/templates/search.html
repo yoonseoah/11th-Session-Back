@@ -1,0 +1,28 @@
+{% extends 'free.html' %}
+{% load static %}
+
+{% block content %}
+<h1><a href="{% url 'free' %}">🦁아기사자 대나무숲🎋</a></h1>
+<p class="p"><a href="{% url 'free_create' %}">글 작성하기</a></p>
+<form method="POST">
+    {%csrf_token%}
+    {% if not free_post %}
+    <h1> 검색결과가 없습니다. </h1>
+    {% else %}
+
+    {% for post in free_post.all %}
+    <div class="post">
+        <a href="{% url 'free_detail' post.id %}">
+            <div class="post_wrapper">
+                <p>{{post.title}}</p>
+                <p>{{post.content|safe}}</p>
+                <p>{% if post.myimage %}
+                    <img src="{{post.myimage.url}}"></p>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    {% endif %}
+</form>
+{% endblock content %}
