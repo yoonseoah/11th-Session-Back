@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Comment</title>
+{% endblock %}
+
 {% block content %}
     <h3>New Comment</h3>
     <form method="POST" class="post-form">
@@ -5,4 +11,4 @@
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">등록</button>
     </form>
-    {% endblock %}
+{% endblock %}
