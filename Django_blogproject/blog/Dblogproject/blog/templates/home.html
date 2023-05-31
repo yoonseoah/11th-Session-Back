@@ -9,12 +9,18 @@
 {% endblock %}
 
 {% block content %}
-<h1 style="margin-left: 10px;">블로그 프로젝트</h1>
+<h1 style="text-align:center;">블로그 프로젝트</h1>
+
+{% if user.is_authenticated %}
+    아이디 : {{user.username}} / 닉네임 : {{user.nickname}} / 대학 : {{user.university}} / 위치 : {{user.location}}
+{% endif %}      
+
+<br>
 <a href="{% url 'new' %}">새로운 글 만들기</a>
-        
+
     {% for blog in blogs.all %}
         
-    <div style="margin:10px; padding:5px; border:1px solid; border-color: rgb(201, 255, 195); 
+    <div style="margin:10px; padding:5px; border:5px solid; border-color: rgb(255, 193, 236); 
         border-radius: 10px; background-color: #ffffc2; ">
     <h3>{{blog.title}}</h3>
     {{blog.date}}

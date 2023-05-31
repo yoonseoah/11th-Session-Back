@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog, HashTag, Comment
 from django.utils import timezone 
 from .forms import Blogform, CommentForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -65,3 +67,6 @@ def add_comment(request, blog_id):
 
     return render(request, 'add_comment.html', {'form' : form}
     )
+
+
+        
